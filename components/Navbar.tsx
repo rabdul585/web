@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
   { name: 'About', href: '#about' },
   { name: 'Skills', href: '#skills' },
   { name: 'Projects', href: '#projects' },
-  { name: 'Exp', href: '#experience' }, // Shortened for space
-  { name: 'Certs', href: '#certifications' }, // Added
+  { name: 'Exp', href: '#experience' }, 
+  { name: 'Certs', href: '#certifications' },
   { name: 'Services', href: '#services' },
   { name: 'Contact', href: '#contact' },
 ];
@@ -70,7 +71,8 @@ const Navbar: React.FC = () => {
             
             <div className="h-6 w-px bg-slate-700 mx-2" />
             
-            <div className="flex gap-4">
+            <div className="flex items-center gap-4">
+              <ThemeToggle />
               <a href="https://github.com/rabdul585" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors">
                 <Github size={20} />
               </a>
@@ -81,7 +83,8 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-4">
+            <ThemeToggle />
             <button 
               onClick={() => setIsOpen(!isOpen)}
               className="text-white p-2"

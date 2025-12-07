@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,8 +8,74 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        /* Light Mode Variables (Applied by default or when 'dark' class is absent) */
+        --bg-900: 241 245 249; /* Slate 100 */
+        --bg-950: 255 255 255; /* White */
+        
+        --text-300: 51 65 85;    /* Slate 700 */
+        --text-400: 71 85 105;   /* Slate 600 */
+        --text-500: 100 116 139; /* Slate 500 */
+        
+        --color-white: 15 23 42; /* Slate 900 (Maps 'white' classes to dark in light mode) */
+      }
+      
+      html.dark {
+        /* Dark Mode Variables (Matches original design) */
+        --bg-900: 15 23 42; /* #0f172a */
+        --bg-950: 2 6 23;   /* #020617 */
+        
+        --text-300: 203 213 225; /* #cbd5e1 */
+        --text-400: 148 163 184; /* #94a3b8 */
+        --text-500: 100 116 139; /* #64748b */
+        
+        --color-white: 255 255 255; /* Real White */
+      }
+
+      /* Transitions for smooth theme switching */
+      body {
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      
+      div, section, nav, button, a, h1, h2, h3, p, span, input, textarea {
+        transition-property: background-color, border-color, color, fill, stroke;
+        transition-duration: 0.3s;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgb(var(--bg-900));
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgb(var(--text-400));
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgb(var(--text-300));
+      }
+      .glass-card {
+        background: rgba(var(--color-white), 0.03);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(var(--color-white), 0.05);
+      }
+      .dark .glass-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .glass-nav {
+        background: rgba(var(--bg-950), 0.8);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(var(--color-white), 0.05);
+      }
+    </style>
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             fontFamily: {
@@ -27,40 +93,20 @@
                 500: '#06b6d4',
               },
               dark: {
-                900: '#0f172a',
-                950: '#020617',
-              }
+                900: 'rgb(var(--bg-900) / <alpha-value>)',
+                950: 'rgb(var(--bg-950) / <alpha-value>)',
+              },
+              slate: {
+                300: 'rgb(var(--text-300) / <alpha-value>)',
+                400: 'rgb(var(--text-400) / <alpha-value>)',
+                500: 'rgb(var(--text-500) / <alpha-value>)',
+              },
+              white: 'rgb(var(--color-white) / <alpha-value>)',
             }
           }
         }
       }
     </script>
-    <style>
-      /* Custom scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #0f172a;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #334155;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #475569;
-      }
-      .glass-card {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-      }
-      .glass-nav {
-        background: rgba(2, 6, 23, 0.8);
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      }
-    </style>
   <script type="importmap">
 {
   "imports": {
