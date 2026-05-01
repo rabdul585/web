@@ -65,7 +65,7 @@ const About: React.FC = () => {
                          <div className="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center shrink-0 text-white font-bold border border-white/10">2024</div>
                          <div>
                             <h4 className="text-white font-medium">Deep Dive into GenAI</h4>
-                            <p className="text-sm text-slate-400">RAG, LLM, Langchain Developer, Python, Streamlit.</p>
+                            <p className="text-sm text-slate-400">RAG, LLM, Langgraph,Knowledge Graph, Fast API Python and Streamlit.</p>
                          </div>
                       </div>
                       <div className="flex gap-4">
